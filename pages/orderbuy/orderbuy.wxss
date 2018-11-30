@@ -1,0 +1,109 @@
+page{
+  background: #ececec;
+}
+.container{
+  height: auto;
+  padding: 30rpx 30rpx 0rpx 30rpx;
+}
+.item-box{
+  background: #FFF;
+  margin-bottom: 30rpx;
+}
+.item-box .title{
+  margin: 0 30rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #dddddd;
+}
+.shop-item{
+  margin: 0 30rpx;
+  line-height: 80rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ececec;
+}
+.shop-item image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+.shop-item text:last-child{
+  width: 150rpx;
+  text-align: right;
+}
+.item-box .bottom{
+  text-align: right;
+  margin: 0 30rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+}
+.item-box .bottom text{
+  font-weight: bold;
+  font-size:36rpx;
+  margin: 0 6rpx;
+  color: rgb(255, 92, 92)
+}
+.discount-item{
+  margin: 0 30rpx;
+  line-height: 88rpx;
+}
+.discount-item text{
+  font-size: 32rpx;
+  padding-right: 32rpx;
+  position: relative;
+}
+.discount-item .icon-right::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 32rpx;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDklEQVRYR+3WoQ7CQAwG4L+DoLd3weD2BsvEDA+AA8EjoUDAXQjPgkCiQM1htuTIEUiQLS2cYfqyfml7vRISf5Q4Pv4AVgaqqpoS0cR7P7cuGQsAIKvregXg5pybWSK4gBgzIjYAWkuEBICmaQZ9368tESJATIM1QgywRnwEeEPsAFw1PfExICLKshwWRbHVIFQAC4QaoEWYAF6IPM8PRHSW9IQZ4NmYo67r9gBO3vsFZ2J+BUBER+fc8qeAeCOSlUBzHdUl0ASPJVIBtMFVgOejlGYUW76I4hJYBheXwDq4FPBYyUIIF8vllFuCx1IaQmgtg7MzENfyLMvG3PHKGcGvM9wMSP4pOvsHJM/AHSzXmiEjvFvAAAAAAElFTkSuQmCC')center no-repeat;
+  background-size: 32rpx;
+}
+.discount-item text:last-child{
+  font-size: 24rpx;
+  color: #aaa;
+  text-align: right;
+}
+.pay-item{
+  margin: 0 30rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+}
+.pay-item .check-box{
+  margin-top: 24rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.pay-item.checked{
+  color: #ff802b;
+}
+
+.bottom-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 108rpx;
+  line-height: 108rpx;
+  background: #333;
+  color: #FFF;
+  padding-left: 20rpx;
+  font-size: 24rpx;
+}
+.bottom-box text{
+  font-weight: bold;
+  font-size: 32rpx;
+  margin: 0 6rpx;
+}
+.bottom-box .btn{
+  background: #ff802b;
+  padding: 0 60rpx;
+  font-size: 32rpx;
+}
+.blank{
+  width: 1rpx;
+  height: 108rpx;
+}

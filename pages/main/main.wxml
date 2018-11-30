@@ -1,0 +1,135 @@
+<!--pages/main/main.wxml-->
+<view class='container flex-box direction-column jtfc-space-between'>
+  <view class='flex-box header'>
+    <view><image class='image-box' src='../../imgs/shoplogo.png'></image></view>
+    <view class='flex1 flex-box direction-column jtfc-space-between'>
+      <text>聚头点餐</text>
+      <text>公告：欢迎光临，很高兴为您服务</text>
+      <text>活动：满100减10</text>
+    </view>
+  </view>
+  <view class="flex1 flex-box body">
+    <view class="menu flex1">
+      <scroll-view class='ul' scroll-y="true">
+        <view class="li {{item.category_id == curCategoryId ? 'active' : ''}}" wx:for="{{categoryList}}" bindtap='switchType' 
+        wx:key="category_id" data-cname="{{item.category_name}}" data-cid="{{item.category_id}}">
+          {{item.category_name}}
+          <text class='mark' hidden='{{!cateogryNum[item.category_id] || cateogryNum[item.category_id] == 0}}'>{{cateogryNum[item.category_id]}}</text>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="flex4 relative">
+      <scroll-view class="pdt-list" scroll-y="{{!isShowCart}}" scroll-with-animation="true" 
+      scroll-into-view="{{scrollPostion}}" bindscroll="scrollEvent">
+        <block wx:for="{{dataList}}" wx:key="unique" wx:for-index="idx">
+          <view wx:if="{{item.isNewType}}" class="category-title" id="{{'list_'+item.category_id}}" 
+          data-cname="{{item.category_name}}" data-cid="{{item.category_id}}">
+            {{item.category_name}}
+          </view>
+          <view class="flex-box item-box" bindtap='showPdtDetail' data-index='{{idx}}'>
+            <view class="img-box">
+              <image src='../../imgs/{{item.pdt_id}}.png' class='def-img' mode='aspectFill'></image>
+            </view>
+            <view class="content flex1">
+              <view class="name">{{item.name}}</view>
+              <view class="small">
+                <text class="em">月售{{item.sale_num}}</text>
+                <text class="em">赞{{item.likes}}</text>
+              </view>
+              <view class="bottom flex-box">
+                <text class="pirce flex1">￥{{item.price}}</text>
+                <view class="opt flex-box">
+                  <icon hidden="{{!hiddenList[item.pdt_id]}}" class="reduce" catchtap="reduceCart" data-pid="{{item.pdt_id}}"></icon>
+                  <view class="span" hidden="{{!hiddenList[item.pdt_id]}}">
+                    {{shopCart[item.pdt_id] ? shopCart[item.pdt_id].num : 0}}
+                  </view>
+                  <icon class="add" catchtap="addCartFly" data-pid="{{item.pdt_id}}" data-cid='{{item.category_pid || item.category_id}}' 
+                  id="list_add_{{idx}}" data-name='{{item.name}}' data-price='{{item.price}}'></icon>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+      <view class="nav-title">{{curCategoryName}}</view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <view class="shopping-cart flex-box">
+    <view class="flex2 relative" bindtap="showCartList">
+      <view class="cycle {{zoomIn}} {{shopCartNum > 0 ? '' : 'disabled'}}">
+        <text class='i'>{{shopCartNum}}</text>
+      </view>
+    </view>
+    <view class="price flex4" bindtap="showCartList">
+      <view class='p'>
+        <!-- <text class='small'>￥</text> -->
+        <text class='i'>￥{{shopCartPrice}}</text>
+        <text class='small'> 元</text>
+      </view>
+    </view>
+    <view class="flex3">
+      <view hover-class="navigator-hover" bindtap='orderBuy' class="submit-btn {{shopCartNum > 0 ? '' : 'disabled'}}">去结算</view>
+    </view>
+  </view>
+</view>
+<view class="cart-list fadeIn {{beforHidden?'fadeOut':''}} animated" hidden="{{delayHiddenCart}}">
+  <view class="cover" bindtap="showCartList"></view>
+  <view class="cart-container fadeInUp {{beforHidden?'fadeOutDown':''}} animated">
+    <view class="cart-title">
+      <view><text class='span' bindtap="clearShopCart">清空购物车</text></view>
+    </view>
+    <scroll-view class="ul" scroll-y="true">
+      <view wx:for="{{carts}}" wx:key="pdt_id" class="flex-box li">
+        <view class="flex3">{{item.name}}</view>
+        <view class="flex1">￥{{item.price * item.num}}</view>
+        <view class="opt flex-box flex2 jtfc-flex-end">
+          <icon hidden="{{!hiddenList[item.pdt_id]}}" class="reduce" bindtap="reduceCart" data-pid="{{item.pdt_id}}"></icon>
+          <view class="span" hidden="{{!hiddenList[item.pdt_id]}}">
+            {{item.num}}
+          </view>
+          <icon class="add" bindtap="addCartFly" data-pid="{{item.pdt_id}}" data-cid='{{item.category_id}}' 
+          id="cart_add_{{item.pdt_id}}" data-name='{{item.name}}' data-price='{{item.price}}'></icon>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view class='detail-container fadeInUp {{beforHidden?"fadeOutDown":""}} animated' hidden="{{delayHiddenDetail}}">
+  <icon class='icon-close' bindtap='closePdtDetail'></icon>
+  <image mode='aspectFill' src='../../imgs/{{pdtDetail.pdt_id}}.png'></image>
+  <view class='content-box'>
+    <text class='title'>{{pdtDetail.name}}</text>
+    <view class='sub-title'>
+      <text class='mright40'>月售{{pdtDetail.sale_num}}</text>
+      <text>赞{{pdtDetail.likes}}</text>
+    </view>
+    <view class='flex-box'>
+    <view class='price'>￥{{pdtDetail.price}}</view>
+    <view class="opt flex-box flex1 jtfc-flex-end" data-pid="{{pdtDetail.pdt_id}}">
+        <icon hidden="{{!hiddenList[pdtDetail.pdt_id]}}" class="reduce" bindtap="reduceCart" data-pid="{{pdtDetail.pdt_id}}"></icon>
+        <view class="span" hidden="{{!hiddenList[pdtDetail.pdt_id]}}">
+          {{shopCart[pdtDetail.pdt_id] ? shopCart[pdtDetail.pdt_id].num : 0}}
+        </view>
+        <icon class="add" bindtap="addCartFly" data-pid="{{pdtDetail.pdt_id}}" data-cid='{{pdtDetail.category_pid || pdtDetail.category_id}}' 
+        id="detail_add_{{pdtDetail.pdt_id}}" data-name='{{pdtDetail.name}}' data-price='{{pdtDetail.price}}'></icon>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="fly-item" id="flyItem" style="{{dynamicStyle}};transform:translate({{offsetX}},0);">
+  <image src='../../imgs/{{flyImg}}.png' style="transform:translate(0,{{offsetY}})"></image>
+</view>
+<view class='float-container' bindtap='openMenu'>
+  <view class='flex-box'>
+    <text class='menu-name'></text>
+    <view class='menu-list' style='width:{{menuIsOpen ? "250rpx" : "0rpx"}}'>
+      <view class='flex-box jtfc-space-around flex1' hidden='{{!menuIsOpen}}'>
+        <navigator url='../orderlist/orderlist' class='flex1'>我的订单</navigator>
+        <text>|</text>
+        <navigator url='../user/user' class='flex1'>个人中心</navigator>
+      </view>
+    </view>
+  </view>
+</view>

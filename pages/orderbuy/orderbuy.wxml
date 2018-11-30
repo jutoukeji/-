@@ -1,0 +1,41 @@
+<!--pages/orderbuy/orderbuy.wxml-->
+<view class='container'>
+  <view class='item-box'>
+    <view class='title'>聚头点餐</view>
+    <view class='flex-box shop-item' wx:for='{{cartList}}' wx:key='pdt_id'>
+      <image src='../../imgs/{{item.pdt_id}}.png' mode='aspectFill'></image>
+      <text class='flex1'>{{item.name}}</text>
+      <text>x{{item.num}}</text>
+      <text>￥{{item.price}}</text>
+    </view>
+    <view class='bottom'>
+      合计￥<text>{{totalPrice}}</text>元
+    </view>
+  </view>
+  <view class='item-box'>
+    <view class='discount-item flex-box'>
+      <text>优惠券</text>
+      <text class='flex1 icon-right'>点击使用优惠券</text>
+    </view>
+    <view class='discount-item flex-box'>
+      <text>备注</text>
+      <text class='flex1 icon-right'>点击添加备注</text>
+    </view>
+  </view>
+  <view class='item-box pay-box'>
+    <view class='title'>选择支付方式</view>
+    <view class='flex-box pay-item {{payType=="wechat"?"checked":""}}' bindtap='checkPayType' data-paytype='wechat'>
+      <text class='flex1'>微信支付</text>
+      <icon class='check-box {{payType=="wechat"?"checked":""}}'></icon>
+    </view>
+    <view class='flex-box pay-item {{payType=="offline"?"checked":""}}' bindtap='checkPayType' data-paytype='offline'>
+      <text class='flex1'>线下支付</text>
+      <icon class='check-box {{payType=="offline"?"checked":""}}'></icon>
+    </view>
+  </view>
+  <view class='blank'></view>
+</view>
+<view class='bottom-box flex-box'>
+  <view class='flex1'>本次支付<text>￥{{totalPrice}}</text>元</view>
+  <view hover-class="navigator-hover" class='btn'>去支付</view>
+</view>

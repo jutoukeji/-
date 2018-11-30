@@ -1,0 +1,59 @@
+page{
+  background: #ececec;
+}
+.container{
+  height: auto;
+}
+.userinfo{
+  background: linear-gradient(#444, #555);
+  padding: 30rpx;
+  height: 160rpx;
+  color: #ddd;
+}
+.userinfo-avatar{
+  height: 130rpx;
+  width: 130rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.userinfo-nickname{
+  color: white;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+.menu-box{
+  margin: 20rpx 0;
+  background: white;
+}
+.menu-box navigator{
+  line-height: 88rpx;
+}
+.menu-box .btn{
+  text-align: center;
+  font-size: 32rpx;
+  background: white;
+}
+.menu-item{
+  padding-left: 58rpx;
+  border-bottom: 1rpx solid #ececec;
+  position: relative;
+}
+.menu-item::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  height: 100%;
+  width: 32rpx;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDklEQVRYR+3WoQ7CQAwG4L+DoLd3weD2BsvEDA+AA8EjoUDAXQjPgkCiQM1htuTIEUiQLS2cYfqyfml7vRISf5Q4Pv4AVgaqqpoS0cR7P7cuGQsAIKvregXg5pybWSK4gBgzIjYAWkuEBICmaQZ9368tESJATIM1QgywRnwEeEPsAFw1PfExICLKshwWRbHVIFQAC4QaoEWYAF6IPM8PRHSW9IQZ4NmYo67r9gBO3vsFZ2J+BUBER+fc8qeAeCOSlUBzHdUl0ASPJVIBtMFVgOejlGYUW76I4hJYBheXwDq4FPBYyUIIF8vllFuCx1IaQmgtg7MzENfyLMvG3PHKGcGvM9wMSP4pOvsHJM/AHSzXmiEjvFvAAAAAAElFTkSuQmCC')center no-repeat;
+  background-size: 32rpx;
+}
+.menu-item.order{
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABoElEQVRYR+2Xv0oDQRDGd7ZJp5WViHmAgLezvQY78QGCIBg7Qd/B+A42gmBERdFOfYD4AJlbglYWprGyEUQQAvvJSQyXYP7cJRICGbjmbme+33077DKkxhw0Zn3VAjDGLGqta0qpmTgUgFfvfc45987MRSI66QUNoCAi19baWQBPRDTfUe+zWa8evW8BMHNBKVUUkbV4grX2GMCXiOwlcctaWwYAEdnuqHcP4EpEztsAjDEbWuvNarW6Hk8wxsxprZ8BLItI5FDfYOZVIrrz3mfDMHyLJzDzLYCbMAzPBgKIFjHzLhEd9lWOLQCwIyJHnTmpAJII91s7BZg6MHkOMHOJiPb7dfdf3wEciEhp6HMgjXi3nMnbglH+ffNUTX4UjxIi8RY0r+CtNBAATkWkPFQTBkGQVUpFT5qoO+d+7v3fSOxAGtVeOVOAxA4EQZDXWq+k2Qrv/YNzrjJUDzQB8ikBKkMDpBGeNuFkOtBtMBl1D1hro8HkUkQuotqtySiXyy1kMpnHztFs1ABKqY9Go7FUq9Ve2gD+QWigkmOfjr8B1D6xMF15Wg0AAAAASUVORK5CYII=')20rpx center no-repeat;
+  background-size: 28rpx;
+}
+.menu-item.discount{
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFc0lEQVRYR6WXe2gdRRSHz5nNtUksVRNRsKDcQisqSBF8NBr7MLUVsaVa0tJWwT4UHxRD7s5sEOki1tydvY0aqSV/tCg+wCit9RWrUq1t8YUiitriI0VFRCkmEu5Nm7tz5IRZ2Wxvkps4EO7uzpzf+ebMzJkTBADwfb+2rq6ugYgaHcdpNMaMPgshGomoAREbAYD/GviX+wDgbCHEStd1D7LGdBsSEYZhGAEATkPklDGmxfO8I9OwHTXBrq6uhnK5fHK6AkRUJKJl04XAHTt2zIui6DgDENHPALAHEU8R0WkhBM9wzG8URacdx6k1xjyHiOdYu6IQYonrup9OdSKYz+ebhBBHrdBepdQd1Yhora8iokOIONPaDgkhWqYKgUEQrEDE/VZkt1JqczUAPCYMw2uNMQcRsT6GQMSFUsovq9VArfVGANhtDQpSSteKZ4noKQCYBQAHi8Wi9n1/OC2cz+dvQMQDCYhBRFxSLQQDSAAIrPDDUsrH+TkIgo+JyPc870BnZ+ccx3G4b1OlmTGEEOJ9AJhhIzFIRM2e530zWSQYgJ0zBLf7pZS7enp6MgMDA31KqZZYIAiCfaVSab3v+8VKomEYLjHG9CHiWRbibyJaOBkEA3D4eRm4rZVSvswPWuvPamtrm7du3XqKgQYHBw9JKZsmmpHWejkRvYGINdVC8Cbcj4grrPAyKeW7dgmWImInAHwAAFk+nlLKtycLqd3UewHAiSEcx2nK5XLHKtkywFFEHJ2ZEOKaXC73eTywu7t7xvDw8GXFYvFYegNqrW92Xfc9RKS0cBAEqxGxN86uRPSX4zg3VoJggOOIOI9Foiia29HR8eNks7QRUgAwX0q5bhyI9Yj4fBLCGNOU1uc9wGmYLxlwHOfi9vb2X6sBsBAPAsD12Wx2Q2trK98nY1oQBGMgAOCPKIqakxAcgZ8QcY61/CKTybS0tbUNVILQWt9DRIeVUt8nTgdDLM5ms62VIFJ5hs0YYkFHR8cJfuHLaPbIyMhHCYjvEHGx67p/piE4HwgheIOtUUqN3h/c8vn8FkRcPgHEfQDwTDyeiH4zxnAkToxewdu3b7+wpqaG8/qldlC/MWaR53m/pCEKhcIlURTtJ6L1nud9m4YolUprfN8vV1iOhxDxiSQEACz4rwYoFArnR1H0ISJewYOI6HdEXCSl/KEShDHmNWPMhjSEEGJFsVhcVQlCa10AgPaE3rExRUhnZ+d5juNwhTPfQpy01+zXaQheunK5/CYA3C2l/Cru5zXnikkpFSZtwjDMGmOOIOJFVvs0Iq48owrq7u6eNTw8zHn9aivwDxccSqlPKkGMjIxw5tuYhEiP01rPBQCumi6wzsuIeJuU8p2KZdjOnTtnDg0N8Q0Xp94SAHCWPJwWt/unz3Gce5NJLB5XKBQuj6KINznXkdwiIrpdKfX66ClIC8bvXV1ddeVymVPvIvuNq6NVnuf1VYLIZDK8FPlU2K/kogUAzk04X6uUejUeN2Ehyqm4VCpxiJcmQrdOSvnKeODx9yAIruM6wdYT1pxak84njEAsZK/mfYh4q/3GuX+zlHLPeBBa62YAYOd1sQ0R3amUejFtU1Up7vt+TX19PV8uq2IBImpTSj2ZFgyC4CZEfCsuTvhETwRcFQA76e3tdfr7+19AxLUJp49JKR+J3/P5/C1CCK4vM4kxmyaKVtUAdhH5n5hnAeCuhINdrus+EIbhaiJ6KS5GbP9ohTXRfpkSQAyhte5BxC0JYU5ei5OnarwlmtYeqDSDIAieRkS+Cc9o1Tqv6hRMFD6tNafbXGrMNinlo5Md07h/ykuQFg7DcBuX7/Z7XkrZUa3z/x2B2JHWOkdEs5VSbVNxzmP/BadWxlGYqqKuAAAAAElFTkSuQmCC')20rpx center no-repeat;
+  background-size: 28rpx;
+}
+

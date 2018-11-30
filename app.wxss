@@ -1,0 +1,276 @@
+/**app.wxss**/
+page{
+  font-family: "SimHei", "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-size: 28rpx;
+  background: #F3F4F9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* width: 100%; */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.container {
+  height: 100%;
+} 
+/*****常用定位方式*****/
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+.txt-right{
+  text-align: right;
+}
+/******flex布局******/
+.flex-box{
+	display: flex;
+	display: -webkit-flex;
+}
+
+/**
+ * 容器属性flex-direction： 属性决定主轴的方向（即项目的排列方向）。
+ * row（默认值）：主轴为水平方向，起点在左端。
+ * row-reverse：主轴为水平方向，起点在右端。
+ * column：主轴为垂直方向，起点在上沿。
+ * column-reverse：主轴为垂直方向，起点在下沿。
+ */
+.flex-box.direction-row-reverse{
+	flex-direction: row-reverse;
+}
+.flex-box.direction-column{
+	flex-direction: column;
+}
+.flex-box.direction-column-reverse{
+	flex-direction: column-reverse;
+}
+/**
+ * 容器属性justify-content 属性定义了项目在主轴上的对齐方式。
+ * flex-start（默认值）：左对齐
+ * flex-end：右对齐
+ * center： 居中
+ * space-between：两端对齐，项目之间的间隔都相等。
+ * space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+ */
+.flex-box.jtfc-flex-end{
+	justify-content: flex-end;
+}
+.flex-box.jtfc-center{
+	justify-content: center;
+}
+.flex-box.jtfc-space-between{
+	justify-content: space-between;
+}
+.flex-box.jtfc-space-around{
+	justify-content: space-around;
+}
+
+
+/**
+ * 容器属性(flex-wrap): 超出时是否换行
+ * nowrap: 默认不换行 
+ * wrap: 换行
+ * wrap-reverse: 换行且第一行在下面
+ */
+.flex-box.wrap{
+	flex-wrap: wrap;
+}
+.flex-box.wrap-reverse{
+	flex-wrap: wrap-reverse;
+}
+
+/**
+ * 容器属性(align-items): 定义项目在交叉轴上如何对齐。
+ * flex-start：交叉轴的起点对齐。
+ * flex-end：交叉轴的终点对齐。
+ * center：交叉轴的中点对齐。
+ * baseline: 项目的第一行文字的基线对齐。
+ * stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+ */
+.flex-box.ai-flex-start{
+	align-items: flex-start;
+}
+.flex-box.ai-flex-end{
+	align-items: flex-end;
+}
+.flex-box.ai-center{
+	align-items: center;
+}
+.flex-box.ai-baseline{
+	align-items: baseline;
+}
+
+/**
+ * 容器属性(align-content): 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+ * flex-start：与交叉轴的起点对齐。
+ * flex-end：与交叉轴的终点对齐。
+ * center：与交叉轴的中点对齐。
+ * space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+ * space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+ * stretch（默认值）：轴线占满整个交叉轴。
+ */
+.flex-box.ac-flex-start{
+	align-content: flex-start;
+}
+.flex-box.ac-flex-end{
+	align-content: flex-end;
+}
+.flex-box.ac-center{
+	align-content: center;
+}
+.flex-box.ac-space-between{
+	align-content: space-between;
+}
+.flex-box.ac-space-around{
+	align-content: space-around;
+}
+
+
+/**
+ * 项目属性(order)： 定义项目的排列顺序。数值越小，排列越靠前，默认为0。
+ */
+.flex-box > .order0{
+	order: -1;
+}
+
+/**
+ * 项目属性(flex-grow): 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+ * 如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。
+ * 如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+ */
+.flex-box > .grow1{
+	flex-grow: 1;
+}
+.flex-box > .grow2{
+	flex-grow: 2;
+}
+
+/**
+ * 项目属性(flex-shrink):定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+ * 如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。
+ * 如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+ * 负值对该属性无效。
+ */
+.flex-box > .shrink0{
+	flex-shrink: 0;
+}
+.flex-box > .shrink1{
+	flex-shrink: 1;
+}
+
+/**
+ * 项目属性(flex-basis): 定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+ * 浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+ * 它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。
+ */
+.flex-box > .basis{
+	/*有需要时添加*/
+  flex-basis: auto;
+}
+.flex1{
+  flex: 1;
+}
+.flex2{
+  flex: 2;
+}
+.flex3{
+  flex: 3;
+}
+.flex4{
+  flex: 4;
+}
+.flex5{
+  flex: 5;
+}
+.flex10{
+  flex: 10;
+}
+
+.check-box{
+  height: 48rpx;
+  width: 48rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 50%;
+}
+.check-box.checked{
+  border: 1rpx solid #ff802b;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABVklEQVRYR+2VPU7DQBBGv0mA1OkoIoEQBUmOEHEMKhpETQElAslTIbpE4gAUaXKPREouEKehoUDiCgjwIGJb8s+Cd73epPF2lrx+b76ZXRO2vGjLfNQCdQIbS0D45BBojAE6I16+x8O/EYEQ3pwC6ADyAtBpLOFcIA2P6ia5JM9//n1yKqCEI7ghXo2ct0AH7iwB4eMO0JqHPY9XunJnCYTwvRlAB0XwyhMwhecE1h+Q1gS7wTndr15NflRl4CkB4f4+IIsoujfsBANdibLwrMAFgPXZjJaWhA083wKvdwWiJ10JW7hyCEVTQg3HLfHy0WR2lDdhkURV8H+P4V8S+Pr8zp9z88q1LiKlBPAB4CgRs3HsyRYV/owUEsn9VnDtm1C4ew00hunhkjti/8Fk4FTvFiYQb8pIWFeuNQNZ41CC2sS+Z1t5KYGqoEZD6AJaC9QJJBP4AT/9oyHwfr3VAAAAAElFTkSuQmCC')center no-repeat;
+  background-size: 32rpx;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+.fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeOutDown {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+.fadeOutDown {
+  animation-name: fadeOutDown;
+}
+
+@keyframes zoomIn {
+	0%,
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+	25% {
+		-webkit-transform: scale3d(0.6, 0.6, 0.6);
+		transform: scale3d(0.6, 0.6, 0.6);
+	}
+	50% {
+		-webkit-transform: scale3d(1.2, 1.2, 1.2);
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+	75% {
+		-webkit-transform: scale3d(0.8, 0.8, 0.8);
+		transform: scale3d(0.8, 0.8, 0.8);
+	}
+}
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+.animated {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+}

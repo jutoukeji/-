@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='userinfo'>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"></button>
+    <view wx:else class='flex-box'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="flex-box direction-column jtfc-center">
+        <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
+        <text>欢迎光临</text>
+      </view>
+    </view>
+  </view>
+  <view class='menu-box'>
+    <navigator url='../orderlist/orderlist' class='menu-item order'>我的订单</navigator>
+    <navigator class='menu-item discount'>我的优惠券</navigator>
+  </view>
+
+  <view class='menu-box'>
+    <navigator url='../main/main' open-type='redirect' class='btn'>去点餐</navigator>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/main/main",
+    "pages/orderbuy/orderbuy",
+    "pages/orderlist/orderlist",
+    "pages/orderdetail/orderdetail",
+    "pages/user/user",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#444",
+    "navigationBarTitleText": "聚头点餐",
+    "navigationBarTextStyle":"white"
+  }
+}
