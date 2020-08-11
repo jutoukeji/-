@@ -2,7 +2,7 @@
 page{
   font-family: "SimHei", "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
   font-size: 28rpx;
-  background: #F3F4F9;
+  background: #ececec;
   color: #333;
   margin: 0;
   padding: 0;
@@ -28,8 +28,17 @@ page{
 .relative {
     position: relative;
 }
+.txt-center{
+  text-align: center;
+}
 .txt-right{
   text-align: right;
+}
+.font32{
+  font-size: 32rpx;
+}
+.font24{
+  font-size: 24rpx;
 }
 /******flex布局******/
 .flex-box{

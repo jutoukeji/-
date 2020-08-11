@@ -1,2 +1,23 @@
 <!--pages/orderlist/orderlist.wxml-->
-<text>开发中...</text>
+<view class='container'>
+  <view wx:if="{{orderlist.length == 0}}" class='txt-center'>
+    <image src='../../imgs/default.png' class='dft-img'></image>
+    <view class='tips'>哎呀~ 还没有点过餐呢~</view>
+    <navigator class='button' url='../main/main' open-type='reLaunch'>去点餐</navigator>
+  </view>
+  <block wx:else>
+    <view wx:for='{{orderList}}' wx:key='pdt_id' class='flex-box item-box'>
+      <image src='../../imgs/{{item.pdt_list[0].pdt_id}}.png' mode='aspectFill'></image>
+      <view class='flex-box direction-column flex1 jtfc-space-between'>
+        <text class='font32'>{{item.pdt_list[0].name}} 等{{item.pdt_list.length}}件商品</text>
+        <text class='font24 time'>{{item.update_time}}</text>
+        <text>￥{{item.price}}</text>
+      </view>
+      <view class='pay-status status{{item.status}}'>
+        <block wx:if='{{item.status==1}}'>待支付</block>
+        <block wx:if='{{item.status==2}}'>支付成功</block>
+        <block wx:if='{{item.status==3}}'>已完成</block>
+      </view>
+    </view>
+  </block>
+</view>

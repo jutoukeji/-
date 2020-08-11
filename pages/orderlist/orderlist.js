@@ -1,32 +1,40 @@
 // pages/orderlist/orderlist.js
+let data = require('../../data.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    orderList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let that = this;
+    wx.showNavigationBarLoading();
+    setTimeout(function () {
+      that.setData({
+        orderList: data.orderList
+      });
+      wx.hideNavigationBarLoading();
+    }, 2000);
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -47,7 +55,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    setTimeout(function(){
+      wx.stopPullDownRefresh();
+    }, 2000);
   },
 
   /**

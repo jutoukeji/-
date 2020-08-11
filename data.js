@@ -161,7 +161,38 @@ var data = {
       "likes": 2,
       "img": "11"
     }
-  ]
+  ],
+  "orderList": [{
+    "order_id": "200812011329001",
+    "update_time": "2018-12-02 13:30:28",
+    "pdt_list": [{ 
+        "pdt_id": "201811170010", "name": "丝瓜炒蛋" 
+      }, {
+        "pdt_id": "201811170009", "name": "茄子煲" 
+      }],
+    "price": 30,
+    "status": 1
+  }, {
+      "order_id": "200812011329002",
+      "update_time": "2018-12-02 13:30:28",
+      "pdt_list": [{
+        "pdt_id": "201811170009", "name": "茄子煲"
+      }, {
+          "pdt_id": "201811170010", "name": "丝瓜炒蛋"
+      }],
+      "price": 30,
+      "status": 2
+    }, {
+      "order_id": "200812011329003",
+      "update_time": "2018-12-02 13:30:28",
+      "pdt_list": [{
+        "pdt_id": "201811170005", "name": "西红柿炒鸡蛋"
+      }, {
+        "pdt_id": "201811170010", "name": "丝瓜炒蛋"
+      }],
+      "price": 30,
+      "status": 3
+    }]
 }
 
 module.exports = data

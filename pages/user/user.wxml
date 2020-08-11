@@ -1,9 +1,12 @@
 <view class='container'>
   <view class='userinfo'>
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"></button>
-    <view wx:else class='flex-box'>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <view class="flex-box direction-column jtfc-center">
+    
+    <view class='flex-box'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl || '../../imgs/user.png'}}" background-size="cover"></image>
+      <view wx:if="{{!hasUserInfo && canIUse}}" class='flex1 btn-box'>
+        <button open-type="getUserInfo" bindgetuserinfo='getUserInfo' class='user-btn'>登录</button>
+      </view>
+      <view wx:else class="flex-box direction-column jtfc-center">
         <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
         <text>欢迎光临</text>
       </view>
@@ -15,6 +18,6 @@
   </view>
 
   <view class='menu-box'>
-    <navigator url='../main/main' open-type='redirect' class='btn'>去点餐</navigator>
+    <navigator url='../main/main' open-type='reLaunch' class='btn'>去点餐</navigator>
   </view>
 </view>

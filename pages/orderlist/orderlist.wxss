@@ -1,1 +1,60 @@
 /* pages/orderlist/orderlist.wxss */
+.container{
+  height: auto;
+  padding: 20rpx 0;
+}
+.dft-img{
+  height: 256rpx;
+  width: 256rpx;
+  margin-top: 200rpx;
+}
+.tips{
+  color: #666;
+}
+.button{
+  display: inline-block;
+  padding: 12rpx 60rpx;
+  background: #f1902e;
+  margin-top: 40rpx;
+}
+.item-box{
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #ececec;
+  padding: 20rpx;
+  background: #ffffff;
+  position: relative;
+}
+
+.time{
+  color: #999;
+}
+
+.item-box image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}
+.status1{
+  color: red;
+}
+.status2{
+  color: green;
+}
+.status3{
+  color: gray;
+}
+.pay-status{
+  position: relative;
+  padding-right: 32rpx;
+  line-height: 32rpx;
+}
+.pay-status::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32rpx;
+  height: 32rpx;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDklEQVRYR+3WoQ7CQAwG4L+DoLd3weD2BsvEDA+AA8EjoUDAXQjPgkCiQM1htuTIEUiQLS2cYfqyfml7vRISf5Q4Pv4AVgaqqpoS0cR7P7cuGQsAIKvregXg5pybWSK4gBgzIjYAWkuEBICmaQZ9368tESJATIM1QgywRnwEeEPsAFw1PfExICLKshwWRbHVIFQAC4QaoEWYAF6IPM8PRHSW9IQZ4NmYo67r9gBO3vsFZ2J+BUBER+fc8qeAeCOSlUBzHdUl0ASPJVIBtMFVgOejlGYUW76I4hJYBheXwDq4FPBYyUIIF8vllFuCx1IaQmgtg7MzENfyLMvG3PHKGcGvM9wMSP4pOvsHJM/AHSzXmiEjvFvAAAAAAElFTkSuQmCC')center no-repeat;
+  background-size: 32rpx;
+}

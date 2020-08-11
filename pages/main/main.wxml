@@ -38,14 +38,8 @@
               </view>
               <view class="bottom flex-box">
                 <text class="pirce flex1">￥{{item.price}}</text>
-                <view class="opt flex-box">
-                  <icon hidden="{{!hiddenList[item.pdt_id]}}" class="reduce" catchtap="reduceCart" data-pid="{{item.pdt_id}}"></icon>
-                  <view class="span" hidden="{{!hiddenList[item.pdt_id]}}">
-                    {{shopCart[item.pdt_id] ? shopCart[item.pdt_id].num : 0}}
-                  </view>
-                  <icon class="add" catchtap="addCartFly" data-pid="{{item.pdt_id}}" data-cid='{{item.category_pid || item.category_id}}' 
-                  id="list_add_{{idx}}" data-name='{{item.name}}' data-price='{{item.price}}'></icon>
-                </view>
+                <add-cart class='flex2 flex-box jtfc-flex-end' pdt-item='{{item}}' shop-cart='{{shopCart}}' id='pdt_list_{{idx}}'
+                bindaddcart='addCartFly' bindreducecart='reduceCart'></add-cart>
               </view>
             </view>
           </view>
@@ -84,14 +78,8 @@
       <view wx:for="{{carts}}" wx:key="pdt_id" class="flex-box li">
         <view class="flex3">{{item.name}}</view>
         <view class="flex1">￥{{item.price * item.num}}</view>
-        <view class="opt flex-box flex2 jtfc-flex-end">
-          <icon hidden="{{!hiddenList[item.pdt_id]}}" class="reduce" bindtap="reduceCart" data-pid="{{item.pdt_id}}"></icon>
-          <view class="span" hidden="{{!hiddenList[item.pdt_id]}}">
-            {{item.num}}
-          </view>
-          <icon class="add" bindtap="addCartFly" data-pid="{{item.pdt_id}}" data-cid='{{item.category_id}}' 
-          id="cart_add_{{item.pdt_id}}" data-name='{{item.name}}' data-price='{{item.price}}'></icon>
-        </view>
+        <add-cart class='flex-box flex2 jtfc-flex-end' pdt-item='{{item}}' shop-cart='{{shopCart}}' id='cart_list_{{item.pdt_id}}' 
+        catchaddcart='addCartFly' catchreducecart='reduceCart'></add-cart>
       </view>
     </scroll-view>
   </view>
@@ -106,15 +94,9 @@
       <text>赞{{pdtDetail.likes}}</text>
     </view>
     <view class='flex-box'>
-    <view class='price'>￥{{pdtDetail.price}}</view>
-    <view class="opt flex-box flex1 jtfc-flex-end" data-pid="{{pdtDetail.pdt_id}}">
-        <icon hidden="{{!hiddenList[pdtDetail.pdt_id]}}" class="reduce" bindtap="reduceCart" data-pid="{{pdtDetail.pdt_id}}"></icon>
-        <view class="span" hidden="{{!hiddenList[pdtDetail.pdt_id]}}">
-          {{shopCart[pdtDetail.pdt_id] ? shopCart[pdtDetail.pdt_id].num : 0}}
-        </view>
-        <icon class="add" bindtap="addCartFly" data-pid="{{pdtDetail.pdt_id}}" data-cid='{{pdtDetail.category_pid || pdtDetail.category_id}}' 
-        id="detail_add_{{pdtDetail.pdt_id}}" data-name='{{pdtDetail.name}}' data-price='{{pdtDetail.price}}'></icon>
-      </view>
+      <view class='price'>￥{{pdtDetail.price}}</view>
+      <add-cart class='flex-box flex1 jtfc-flex-end' pdt-item='{{pdtDetail}}' shop-cart='{{shopCart}}' id='pdt_detail_{{pdtDetail.pdt_id}}' 
+      catchaddcart='addCartFly' catchreducecart='reduceCart'></add-cart>
     </view>
   </view>
 </view>

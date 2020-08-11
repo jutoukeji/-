@@ -1,0 +1,7 @@
+<view class="opt">
+  <icon hidden="{{!cartNum}}" class="reduce" catchtap="reduceCart"></icon>
+  <view class="span" hidden="{{!cartNum}}">
+    {{cartNum}}
+  </view>
+  <icon class="add" catchtap="addCart"></icon>
+</view>

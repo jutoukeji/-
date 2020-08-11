@@ -41,6 +41,15 @@ Page({
       })
     }
   },
+  getUserInfo: function (e) {
+    if (e.detail.userInfo){
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

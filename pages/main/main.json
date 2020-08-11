@@ -1,3 +1,6 @@
 {
-  "disableScroll": true
+  "disableScroll": true,
+  "usingComponents": {
+    "add-cart": "../../components/addcart/addcart"
+  }
 }

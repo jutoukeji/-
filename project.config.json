@@ -12,6 +12,8 @@
 	"appid": "wx122cc1b2a43dbaa4",
 	"projectname": "order",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -41,7 +43,13 @@
 				{
 					"id": -1,
 					"name": "个人中心",
-					"pathName": "pages/user/user"
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/orderlist/orderlist"
 				}
 			]
 		}

@@ -5,12 +5,14 @@
     "pages/orderlist/orderlist",
     "pages/orderdetail/orderdetail",
     "pages/user/user",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/index/index"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#444",
     "navigationBarTitleText": "聚头点餐",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#ececec"
   }
 }
